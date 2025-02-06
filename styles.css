@@ -14,6 +14,14 @@ body {
 
 .key {
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
 }
 
 .white {
@@ -30,6 +38,7 @@ body {
     position: absolute;
     margin-left: -20px;
     z-index: 1;
+    color: white; /* White text for black keys */
 }
 
 /* Positioning black keys */
@@ -38,3 +47,12 @@ body {
 .black[data-note="F#4"] { left: 225px; }
 .black[data-note="G#4"] { left: 285px; }
 .black[data-note="A#4"] { left: 345px; }
+
+/* Highlight active keys */
+.key.active {
+    background-color: #ccc;
+}
+
+.black.active {
+    background-color: #555;
+}

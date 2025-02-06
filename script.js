@@ -27,10 +27,46 @@ const notes = {
     "B4": 493.88
 };
 
+// Map keyboard keys to piano keys
+const keyMap = {
+    "a": "C4",
+    "w": "C#4",
+    "s": "D4",
+    "e": "D#4",
+    "d": "E4",
+    "f": "F4",
+    "t": "F#4",
+    "g": "G4",
+    "y": "G#4",
+    "h": "A4",
+    "u": "A#4",
+    "j": "B4"
+};
+
 // Add click event listeners to keys
 document.querySelectorAll('.key').forEach(key => {
     key.addEventListener('click', () => {
         const note = key.getAttribute('data-note');
         playNote(notes[note]);
+        highlightKey(key);
     });
 });
+
+// Add keyboard event listeners
+document.addEventListener('keydown', (event) => {
+    const key = event.key.toLowerCase();
+    if (keyMap[key]) {
+        const note = keyMap[key];
+        playNote(notes[note]);
+        const pianoKey = document.querySelector(`.key[data-note="${note}"]`);
+        highlightKey(pianoKey);
+    }
+});
+
+// Function to highlight the key
+function highlightKey(key) {
+    key.classList.add('active');
+    setTimeout(() => {
+        key.classList.remove('active');
+    }, 200); // Remove highlight after 200ms
+}

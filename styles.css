@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.piano {
+    display: flex;
+    position: relative;
+}
+
+.key {
+    cursor: pointer;
+}
+
+.white {
+    width: 60px;
+    height: 200px;
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.black {
+    width: 40px;
+    height: 120px;
+    background-color: black;
+    position: absolute;
+    margin-left: -20px;
+    z-index: 1;
+}
+
+/* Positioning black keys */
+.black[data-note="C#4"] { left: 45px; }
+.black[data-note="D#4"] { left: 105px; }
+.black[data-note="F#4"] { left: 225px; }
+.black[data-note="G#4"] { left: 285px; }
+.black[data-note="A#4"] { left: 345px; }
